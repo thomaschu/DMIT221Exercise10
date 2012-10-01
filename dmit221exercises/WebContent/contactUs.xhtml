@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+
+	<!-- The f:view element is required to get certain components to work with webkit based browsers
+	(Google Chrome and Safari) -->
+	<f:view contentType="text/html">
+
+		<h:head>
+			<!-- Change the title of this document!!! -->
+			<title>Contact Us</title>
+			<!-- Add support for <meta>, <link>, and <scripts> here -->		
+		</h:head>
+
+		<h:body>
+		<!-- Add your content here -->
+		<h2>Contact Us</h2>
+		<p>
+			For more information submit your contact information.
+		</p>
+		<h:form id="contactUsForm">
+			<h:messages id="hmessages" />
+			<p:messages id="messages">
+			<p:growl id="growl"/>
+			</p:messages>
+			
+			<h:panelGrid columns="2">
+				<h:outputLabel for="name"  value="Your Name: "></h:outputLabel>
+				<p:inputText id="name"
+					value="#{contactUsBean.name}" 
+					required="true"
+					requiredMessage="Name is required."  ></p:inputText>
+				
+				<h:outputLabel for="emailAddress"  value="Your Email Address:  "></h:outputLabel>
+				<p:inputText id="emailAddress"
+					value="#{contactUsBean.emailAddress}"
+					required="true"
+					requiredMessage="Email Address is required."></p:inputText>
+				
+				<h:outputLabel for="message"  value="Message: "></h:outputLabel>
+				<p:editor id="message"
+					value="#{contactUsBean.message}"				
+					required="true"
+					requiredMessage="Message is required.">
+				</p:editor>
+				
+				<h:outputText />
+				<p:commandButton value="sendMessage"
+					ajax="false"  update ="messages,growl,hmessages,name,emailAddress,message"
+					actionListener="#{contactUsBean.sendMessage}" >
+				</p:commandButton>
+				
+			</h:panelGrid>	
+		</h:form>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- End of content area -->
+		</h:body>
+
+	</f:view>	
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+
+<!-- The f:view element is required to get certain components to work with webkit based browsers
+(Google Chrome and Safari) -->
+<f:view contentType="text/html">
+
+<h:head>
+			<!-- Change the title of this document!!! -->
+			<title>BMI Calculator</title>
+			<!-- Add support for <meta>, <link>, and <scripts> here -->		
+		</h:head>
+
+		<h:body>
+		<!-- Add your content here -->
+		<h2>BMI Calculator</h2>
+
+		<h:form id="calculatorBMIForm">
+			
+			<p:messages id="messages">
+			<p:growl id="growl"/>
+			</p:messages>
+			
+			<h:panelGrid columns="2">
+				<h:outputLabel for="weight"  value="Weight(in pounds): "></h:outputLabel>
+				<p:inputText id="weight"
+					value="#{bmiBean.bmi.weight}">
+					</p:inputText>
+				
+				<h:outputLabel for="height"  value="Height(in inches):  "></h:outputLabel>
+				<p:inputText id="height"
+					value="#{bmiBean.bmi.height}">
+					</p:inputText>
+				
+				<h:outputText />
+				
+				<h:panelGroup> 
+				<p:commandButton value="Calculate" ajax="false"
+				
+				actionListener="#{bmiBean.calculateBMI}"
+				> </p:commandButton>
+				<p:commandButton value="Clear" ajax="true"> </p:commandButton>
+				</h:panelGroup> 
+				
+			</h:panelGrid>	
+			
+		</h:form>	
+
+		<!-- End of content area -->
+		</h:body>
+
+</f:view>
+
+</html>

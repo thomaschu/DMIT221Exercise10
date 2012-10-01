@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+
+<!-- The f:view element is required to get certain components to work with webkit based browsers
+(Google Chrome and Safari) -->
+<f:view contentType="text/html">
+
+<h:head>
+<!-- Change the title of this document!!! -->
+<title>Get Chinese Zodiac Animal</title>
+<!-- Add support for <meta>, <link>, and <scripts> here -->
+
+</h:head>
+
+		<h:body>
+		<!-- Add your content here -->
+		<h2>Kung Hsi Fa Tsai</h2>
+
+		<h:form id="getAnimalForm">
+		
+			<p:messages id="messages">
+			<p:growl id="growl"/>
+			</p:messages>
+			<h:graphicImage id="carImage" 
+		url="../resources/images/chinese_zodiac.jpg" 
+		alt="My Car"  />
+			<h:graphicImage id ="zodiacImage" 
+			value="../resources/images/chinese_zodiac.jpg"> </h:graphicImage>
+			<h:panelGrid columns="2">
+				<h:outputLabel for="year"  value="Enter your birth year: "></h:outputLabel>
+				<p:inputText id="year">
+					</p:inputText>
+			
+				<h:outputText />
+				
+				<h:panelGroup> 
+				<p:commandButton value="Get Animal" ajax="false"> </p:commandButton>
+				<p:commandButton value="Clear" ajax="true"> </p:commandButton>
+				</h:panelGroup> 
+				
+			</h:panelGrid>	
+			
+		</h:form>	
+
+		<!-- End of content area -->
+		</h:body>
+
+
+
+</f:view>
+
+</html>
